@@ -1,2 +1,3 @@
 # cronlog_io
-public placeholder for cronlog.io
+
+This repo is a public placeholder for cronlog.io

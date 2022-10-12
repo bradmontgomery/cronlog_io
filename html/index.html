@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CronLog</title>
+    <link rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style type="text/css">
+      body {
+        width: 80%;
+        margin:2em auto;
+        padding: 1em;
+        font-size: 1.3rem;
+        font-family: 'Inconsolata', monospace;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+      .lead {
+        font-size: 2rem;
+        font-weight:
+      }
+      pre {
+        background-color: #eee;
+        padding:1em;
+      }
+      hr {
+        border:0;
+        border-top: 1px solid #ddd;
+        width: 50%;
+        margin:3em auto;
+      }
+      .flex-wrapper {display:flex}
+      .description {flex: 2}
+      .get-key {flex: 1; text-align:center;}
+      .button {
+        display:inline-block;
+        width: 60%;
+        padding:1rem;
+        text-decoration: none;
+        border:1px solid #8a8;
+        background-color: #cfc;
+        color: #585;
+      }
+      .button:hover {background-color: #efe;}
+    </style>
+  </head>
+  <body>
+    <h1>
+      <i class="fa fa-terminal" aria-hidden="true"></i>
+      cronlog
+    </h1>
+    <p class="lead">Log events. Get an email report later.</p>
+    <div class="flex-wrapper">
+      <div class="description">
+        <p>Tired of all those emails that get kicked off by those cron jobs? (you
+        know you've got em!) Well, this is a simple service to help clean up
+        your inbox. With a simple curl command, you can consolidate all of that
+        info, and get a single email about it later.</p>
+      </div>
+      <div class="get-key">
+        <p><span class="button"><del title="Sorry, this is currently not available">Get an API Key!</del></span></p>
+      </div>
+    </div>
+
+    <hr/>
+
+    <h2>Examples</h2>
+    <p>Send your data with <code>curl</code>.</p>
+    <pre>
+curl
+  --data 'message=SOME-MESSAGE&amp;command=SOME-COMMAND&amp;key=API-KEY'
+  https://cronlog.io/cronlog/
+    </pre>
+
+    <p>Or, with Python + <a href="http://docs.python-requests.org/">requests</a>:</p>
+
+    <pre>
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; payload = {
+    'command': 'requests.post',
+    'message': 'Testing POST w/ requests',
+    'host':'localhost',
+    'key': 'YOUR-API-KEY'
+}
+&gt;&gt;&gt; requests.post('https://cronlog.io/cronlog/', payload)
+    </pre>
+
+    <p>Or with JavaScript + <a href="https://github.com/mzabriskie/axios">axios</a>:</p>
+
+    <pre>
+axios.post('https://cronlog.io/cronlog/', {
+    command: 'axios.post',
+    message: 'Testing w/ JavaScript'
+    host: 'localhost'
+    key: 'YOUR-API-KEY'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+    </pre>
+
+    <h2>Comments or Feedback?</h2>
+    <p><a href="mailto:brad@brad.tips?subject=Cronlog">Let me know!</a></p>
+  </body>
+</html>
